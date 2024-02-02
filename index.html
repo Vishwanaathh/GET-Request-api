@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><h1>Meets.com</h1>
+<h3>Learn about new people...</h3>
+<ul><li>Vishwa</li>
+<li>Alisha</li>
+<li>Alexa</li>
+<li>Sam</li></ul>
+    <input type="text" placeholder="Enter the name" id="inp2"><button onclick="view()">Submit</button>
+     <div id="msg"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h4>Notice..</h4>
+<h5>The website will soon undergo an update,allowing you to add you own data!</h5>
+
+</body>
+<script>
+    let m=document.getElementById("msg");
+    
+    function view(){
+        let inp2=document.getElementById("inp2").value;
+        fetch('http://localhost:8080/api',{
+            method:"GET",
+
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            m.innerText=data[inp2];
+
+        })
+    }
+
+</script>
+</html>
